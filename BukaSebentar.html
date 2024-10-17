@@ -1,0 +1,244 @@
+<html>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+<script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+
+<head>
+    <style>
+        body {
+            font-family: 'Shippori Antique', sans-serif;
+            background-image: url('https://images.freeimages.com/images/large-previews/68d/love-heart-1592821.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #konten {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        #fotoloveu {
+            margin-bottom: 20px;
+        }
+
+        .image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #tombWA a {
+            font-size: 1.2rem;
+            padding: 12px 24px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #tombWA a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: #1bc059;
+        }
+
+        #koteks {
+            opacity: 0;
+            animation: fadeInText 2s forwards;
+            font-size: 1.1rem;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                background-size: cover;
+            }
+
+            #konten {
+                max-width: 600px;
+            }
+
+            .image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            #tombWA a {
+                font-size: 1.5rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="konten">
+        <div id="fotoloveu">
+            <div class="image">
+                <img src="https://i.postimg.cc/Rhzfr0FG/hbd.gif" id="animasi" />
+            </div>
+        </div>
+        <p class='catatan' id='koteks'>
+            <marquee scrollamount="8" id="marq">
+                <i id="spasi"></i> Yeay makasi ya :v <i id="spasi"></i> Kapan nih ditraktirinnya? &#128511; <i id="spasi"></i> Candaa candaa :v <i id="spasi"></i> HBD yaa &#129395;&#129395;&#129395;
+            </marquee>
+        </p>
+        <div id="tombWA">
+            <a class='button' onClick='bukaWa();'>Kirim Pesan</a>
+        </div>
+        <img src="photo/IMG_20240917_190321_474.webp" width="200px" height="250px" alt="">
+    </div>
+
+    <script>
+        function play() {
+            var audio = new Audio('https://kuisberhadiah.likeadream.repl.co/musiktiktok.m4a');
+            audio.play();
+            audio.loop = true;
+            audio.addEventListener('ended', function () {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+        }
+
+        function bukaWa() {
+            window.location = "https://api.whatsapp.com/send?phone=&text=" + window.nama + " udah liat semuanya. Enak aja lu minta traktir :v" + "%0A%0A" + "Btw makasih udah ngucapin ><";
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            mulai();
+        });
+
+        const swals = Swal.mixin({
+            backdrop: 'rgba(0,0,123,0.4)',
+            confirmButtonColor: '#003EFF',
+            cancelButtonColor: '#FF0040',
+            allowOutsideClick: false,
+        });
+
+        async function mulai() {
+            var { value: nama } = await swals.fire({
+                title: 'Nama kamu?',
+                input: 'text',
+                confirmButtonText: 'Lanjut',
+                showCancelButton: false,
+            });
+
+            if (nama && nama.length < 11) {
+                play();
+                window.nama = nama;
+                await swals.fire('Hai, ' + nama + ' sayang ツ');
+                await swals.fire('Cie yang hari ini ultah &#128514;');
+                await swals.fire('Selamat ulang tahun!');
+                await swals.fire('Janji ya kita akan selalu bersama');
+                await swals.fire('Maafin aku kalo banyak salah sama kamu');
+                await swals.fire('semoga dengan kartu ucapan ini');
+                await swals.fire('Kamu semakin sayang sama aku');
+                await swals.fire('Sama ga lupa juga Semoga kamu');
+                await swals.fire('Tetep sayang aku seterusnya dan juga');
+                await swals.fire('Panjang umur & sehat selalu <3');
+                pilihwarna();
+            } else {
+                await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');
+                mulai();
+            }
+        }
+
+        async function pilihwarna() {
+            var { isConfirmed: warna } = await swals.fire({
+                title: 'Oh iya, ' + nama + ' mau pilih warna apa nih?',
+                text: 'Ayo, jangan ragu-ragu :v',
+                showCancelButton: true,
+                confirmButtonText: 'Biru',
+                cancelButtonText: 'Merah',
+            });
+
+            if (warna) {
+                await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Biru</b> berarti harus traktirin gw ya &#129315;!');
+                var { isConfirmed: warna2 } = await swals.fire({
+                    title: nama + ' yakin pilih warna Biru?',
+                    text: 'Atau mau ganti warna aja nih?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yakin',
+                    cancelButtonText: 'Ganti',
+                });
+                if (warna2) {
+                    await swals.fire('Oke!', `Sekarang lihat ini ya &#10084;&#65039;`);
+                    expl();
+                    StartMarquee();
+                } else {
+                    await swals.fire('Oke, memilih Merah!', 'Sama aja sih sebenernya, cuma kalo Merah traktirinnya harus lebih banyak yaa &#129315;');
+                    expl();
+                    StartMarquee();
+                }
+            } else {
+                await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Merah</b> berarti harus traktirin gw ya &#129315;!');
+                var { isConfirmed: warna2 } = await swals.fire({
+                    title: nama + ' yakin pilih warna Merah?',
+                    text: 'Atau mau ganti warna aja nih?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ganti',
+                    cancelButtonText: 'Yakin',
+                });
+                if (warna2) {
+                    await swals.fire('Oke, memilih Biru!', 'Sama aja sih sebenernya, cuma kalo Biru traktirinnya harus lebih banyak yaa &#129315;');
+                    expl();
+                    StartMarquee();
+                } else {
+                    await swals.fire('Oke!', `Sekarang lihat ini ya &#10084;&#65039;`);
+                    expl();
+                    StartMarquee();
+                }
+            }
+        }
+
+        function StartMarquee() {
+            var marquee = document.getElementById("marq");
+            marquee.start();
+        }
+
+        function StopMarquee() {
+            var marquee = document.getElementById("marq");
+            marquee.stop();
+        }
+
+        StopMarquee();
+    </script>
+</body>
+
+</html>
